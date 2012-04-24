@@ -1,0 +1,12 @@
+package com.harun.api.resource;
+
+import javax.ws.rs.Path;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Path("/users/")
+public class UserResource
+{
+
+}

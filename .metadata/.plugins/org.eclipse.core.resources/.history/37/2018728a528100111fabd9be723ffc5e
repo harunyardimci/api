@@ -1,0 +1,6 @@
+package com.harun.api.resource;
+
+public class UserResource
+{
+
+}

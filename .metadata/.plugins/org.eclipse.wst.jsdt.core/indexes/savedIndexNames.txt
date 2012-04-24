@@ -1,0 +1,6 @@
+INDEX VERSION 1.122+/home/harun/Documents/workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+3411398805.index
+1343199767.index
+3707574178.index
+2686472464.index
+4057805783.index

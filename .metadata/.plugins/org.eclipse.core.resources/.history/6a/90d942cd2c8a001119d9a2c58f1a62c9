@@ -1,0 +1,29 @@
+package com.harun.api.util;
+
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.ext.Provider;
+import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.stereotype.Component;
+
+@Provider
+@Component
+public class XMLProvider extends JacksonJsonProvider {
+
+    private ObjectMapper mapper = new ObjectMapper();
+
+    public XMLProvider() {
+        setMapper(mapper);
+    }
+
+    @Override
+    public boolean isJsonType(MediaType mediaType) {
+        if (mediaType != null) {
+            String subtype = mediaType.getSubtype();
+            return "xml".equals(subtype) || subtype.endsWith("+xml");
+        }
+        return true;
+    }
+
+    
+}

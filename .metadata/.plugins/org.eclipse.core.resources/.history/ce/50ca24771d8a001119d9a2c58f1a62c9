@@ -1,0 +1,19 @@
+package com.harun.api.util;
+
+import javax.ws.rs.ext.Provider;
+
+import org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.stereotype.Component;
+
+@Provider
+@Component
+public class XMLProvider extends JacksonJaxbJsonProvider {
+
+    private ObjectMapper mapper = new ObjectMapper();
+
+    public XMLProvider() {
+        setMapper(mapper);
+    }
+
+}
