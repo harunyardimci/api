@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.harun.api.util.GGResponse;
 import com.harun.core.domain.Category;
 import com.harun.core.service.CategoryService;
 import com.sun.jersey.api.JResponse;
@@ -40,7 +41,13 @@ public class CategoryResource
     @Produces({MediaType.APPLICATION_JSON})
     public Response getCategory(@PathParam("id") int categoryId)
     {
-        return Response.ok(categoryService.getCategory(categoryId)).build();
+        
+        GGResponse myResponse = new GGResponse();
+        myResponse.setErrCode(1);
+        myResponse.setData(categoryService.getCategory(categoryId));
+        return Response.ok(myResponse).build();
+        
+        //return Response.ok(categoryService.getCategory(categoryId)).build();
     }
     
     @POST
@@ -61,7 +68,7 @@ public class CategoryResource
     }
     
     @POST
-    @Path("{/multi}")
+    @Path("{multi}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response setMultipleCategories(List<Category> category)
     {
