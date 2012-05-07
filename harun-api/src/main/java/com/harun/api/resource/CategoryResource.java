@@ -4,6 +4,7 @@ package com.harun.api.resource;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -41,12 +42,10 @@ public class CategoryResource
     @Produces({MediaType.APPLICATION_JSON})
     public Response getCategory(@PathParam("id") int categoryId)
     {
-        
         GGResponse myResponse = new GGResponse();
-        myResponse.setErrCode(1);
+        myResponse.setErrCode(0);
         myResponse.setData(categoryService.getCategory(categoryId));
         return Response.ok(myResponse).build();
-        
         //return Response.ok(categoryService.getCategory(categoryId)).build();
     }
     
@@ -64,6 +63,14 @@ public class CategoryResource
             }
          */
         
+        return Response.ok(category.toString()).build();
+    }
+    
+    @DELETE
+    @Path("{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response deleteCategory(Category category)
+    {
         return Response.ok(category.toString()).build();
     }
     
